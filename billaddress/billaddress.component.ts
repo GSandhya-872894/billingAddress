@@ -21,13 +21,16 @@ export class BilladdressComponent implements OnInit {
       state : ['', Validators.required],
       zipCode : ['', Validators.required],
       landmark : ['', Validators.required],
-      phoneNo : ['', Validators.required]
+      phoneNo : ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     })
   }
 
   get f() {
     return this.billForm.controls;
   }
-
+  
+  onSubmit(){
+    console.log(this.billForm.value)
+  }
 
 }
